@@ -6,8 +6,8 @@ import Iconcart from "@/assets/images/ícon-cart.png";
 export const Header = () => {
   return (
     <div className="relative">
-      <header className="fixed top-0 left-0 right-0 z-10 mx-10 ">
-        <div className="bg-whitemax-w-[1320px] mx-auto flex justify-between items-center py-5 px-7 rounded-2xl border-2 border-amber-500 mt-5">
+      <header className="fixed top-10 left-0 right-0 z-10 mx-10 ">
+        <div className="bg-white max-w-[1320px] mx-auto flex justify-between items-center py-3 px-7 rounded-2xl mt-5">
           <img className='w-32 md:w-36' src={logo} alt="Logo" />
           <nav className='hidden md:block'>
             <ul className='flex gap-4 md:gap-10'>
