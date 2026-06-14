@@ -1,13 +1,13 @@
 import logo from "@/assets/images/Logo.png";
 import IconUser from "@/assets/images/icon-user.png";
-import IconAbolt from "@/assets/images/ícon-about.png";
-import Iconcart from "@/assets/images/ícon-cart.png";
+import IconAbolt from "@/assets/images/icon-about.png";
+import Iconcart from "@/assets/images/icon-cart.png";
 
 export const Header = () => {
   return (
     <div className="relative">
       <header className="fixed top-10 left-0 right-0 z-10 mx-10 ">
-        <div className="bg-white max-w-[1320px] mx-auto flex justify-between items-center py-3 px-7 rounded-2xl mt-5">
+        <div className="bg-white max-w-330 mx-auto flex justify-between items-center py-3 px-7 rounded-2xl mt-5">
           <img className='w-32 md:w-36' src={logo} alt="Logo" />
           <nav className='hidden md:block'>
             <ul className='flex gap-4 md:gap-10'>
