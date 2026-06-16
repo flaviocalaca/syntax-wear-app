@@ -74,27 +74,6 @@ export const Gallery = () => {
             {item.id === "highlight" && (
               <>
                 <div className="absolute inset-0 bg-black/20" />
-
-                {/* <div className=" ">
-
-                  <h2 className='text-xl text-white font-medium leading-normal tracking-wider mb-5' >Krypton One</h2>
-
-                  <h1 className='text-2xl leading-9 text-white tracking-widest mb-5'>
-
-                  </h1>
-
-                  <div className="mt-8 flex flex-wrap justify-center gap-4">
-
-                    <Button size='md' variant="secondary">
-                      Feminino
-                    </Button>
-
-                    <Button size='md' variant="secondary">
-                      Masculino
-                    </Button>
-                  </div>
-                </div> */}
-
                 <Overlay
                   title="Kripton One"
                   subtitle="Estilo urbano com atitude"
