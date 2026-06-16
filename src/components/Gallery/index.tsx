@@ -1,0 +1,107 @@
+import galeriaHomem from "@/assets/images/galeria-homem.jpg";
+import tenisRoxo from "@/assets/images/galeria-tenis-roxo.jpg";
+import modelo from "@/assets/images/galeria-modelo.jpg";
+import tenisColorido from "@/assets/images/galeria-tenis-colorido.jpg";
+import tenisBrancoPreto from "@/assets/images/tenis-branco-e-preto.jpg";
+import tenisCinza from "@/assets/images/galeria-tenis-cinza.jpg";
+
+import { Button } from "../Button";
+
+type GalleryItem = {
+  id: string;
+  image: string;
+  alt: string;
+  className: string;
+};
+
+const galleryItems: GalleryItem[] = [
+  {
+    id: "highlight",
+    image: galeriaHomem,
+    alt: "Modelo masculino usando peças da coleção Syntax Wear",
+    className:
+      "order-1 col-span-2 row-span-2 md:order-1 md:col-span-6 md:row-span-2",
+  },
+  {
+    id: "sneaker-white",
+    image: tenisBrancoPreto,
+    alt: "Tênis branco e preto da coleção Syntax Wear",
+    className:
+      "order-2 col-span-2 md:order-5 md:col-span-6 md:row-span-1",
+  },
+  {
+    id: "model",
+    image: modelo,
+    alt: "Modelo feminina usando peças da coleção Syntax Wear",
+    className:
+      "order-3 col-span-1 row-span-2 md:order-3 md:col-span-3 md:row-span-2",
+  },
+  {
+    id: "sneaker-color",
+    image: tenisColorido,
+    alt: "Tênis colorido com detalhes vibrantes",
+    className:
+      "order-4 col-span-1 md:order-4 md:col-span-3 md:row-span-1",
+  },
+  {
+    id: "sneaker-silver",
+    image: tenisCinza,
+    alt: "Tênis cinza da coleção Syntax Wear",
+    className:
+      "order-5 col-span-1 md:order-6 md:col-span-3 md:row-span-1",
+  },
+  {
+    id: "sneaker-purple",
+    image: tenisRoxo,
+    alt: "Tênis roxo com acabamento texturizado",
+    className:
+      "order-6 col-span-2 md:order-2 md:col-span-6 md:row-span-1",
+  },
+];
+
+export const Gallery = () => {
+  return (
+    <section className="container mb-10">
+      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-12 md:auto-rows-[300px] md:gap-7.5">
+        {galleryItems.map((item) => (
+          <div
+            key={item.id}
+            className={`relative overflow-hidden rounded-[20px] ${item.className}`}
+          >
+            <img
+              src={item.image}
+              alt={item.alt}
+              className="h-full w-full object-cover"
+            />
+
+            {item.id === "highlight" && (
+              <>
+                <div className="absolute inset-0 bg-black/20" />
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+
+                  <h2 className='text-xl text-white font-medium leading-normal tracking-wider mb-5' >Krypton One</h2>
+
+                  <h1 className='text-2xl leading-9 text-white tracking-widest mb-5'>
+                    Estilo urbano com atitude
+                  </h1>
+
+                  <div className="mt-8 flex flex-wrap justify-center gap-4">
+
+                    <Button size='md' variant="secondary">
+                      Feminino
+                    </Button>
+
+                    <Button size='md' variant="secondary">
+                      Masculino
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
