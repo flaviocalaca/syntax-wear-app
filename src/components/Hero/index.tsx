@@ -1,5 +1,6 @@
 import banner from "@/assets/images/banner.jpg";
-import { Button } from '../Button';
+import { Button } from "../Button";
+import { Overlay } from "../Overlay";
 
 export const Hero = () => {
   return (
@@ -10,16 +11,18 @@ export const Hero = () => {
           src={banner}
           alt="Homen sentado com tênis syntaxwear"
         />
-        <div className='absolute  w-full bottom-0 flex justify-end items-center text-center px-6 md:px-24 pb-32'>
-          <div className='flex flex-col text-white items-center w-97'>
-            <h2 className='text-xl font-medium leading-normal tracking-wider mb-2.5' >Krypton One</h2>
-            <h1 className='text-2xl leading-9 tracking-widest mb-10'>Transforme qualquer passo em presença.</h1>
-            <div className='flex gap-10'>
-              <Button variant='secondary' size='sm'>Ver mais</Button>
-              <Button variant='primary' size='sm'>Comprar</Button>
-            </div>
-          </div>
-        </div>
+        <Overlay
+          title="Kripton One"
+          subtitle="Transforme qualquer passo em presença"
+          classname='bottom-0  justify-end px-6 pb-32  md:px-24 md:items-end'
+        >
+          <Button variant="secondary" size="sm">
+            Ver mais
+          </Button>
+          <Button variant="primary" size="sm">
+            Comprar
+          </Button>
+        </Overlay>
       </section>
     </div>
   );

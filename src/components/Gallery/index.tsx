@@ -6,6 +6,7 @@ import tenisBrancoPreto from "@/assets/images/tenis-branco-e-preto.jpg";
 import tenisCinza from "@/assets/images/galeria-tenis-cinza.jpg";
 
 import { Button } from "../Button";
+import { Overlay } from "../Overlay";
 
 type GalleryItem = {
   id: string;
@@ -26,8 +27,7 @@ const galleryItems: GalleryItem[] = [
     id: "sneaker-white",
     image: tenisBrancoPreto,
     alt: "Tênis branco e preto da coleção Syntax Wear",
-    className:
-      "order-2 col-span-2 md:order-5 md:col-span-6 md:row-span-1",
+    className: "order-2 col-span-2 md:order-5 md:col-span-6 md:row-span-1",
   },
   {
     id: "model",
@@ -40,22 +40,19 @@ const galleryItems: GalleryItem[] = [
     id: "sneaker-color",
     image: tenisColorido,
     alt: "Tênis colorido com detalhes vibrantes",
-    className:
-      "order-4 col-span-1 md:order-4 md:col-span-3 md:row-span-1",
+    className: "order-4 col-span-1 md:order-4 md:col-span-3 md:row-span-1",
   },
   {
     id: "sneaker-silver",
     image: tenisCinza,
     alt: "Tênis cinza da coleção Syntax Wear",
-    className:
-      "order-5 col-span-1 md:order-6 md:col-span-3 md:row-span-1",
+    className: "order-5 col-span-1 md:order-6 md:col-span-3 md:row-span-1",
   },
   {
     id: "sneaker-purple",
     image: tenisRoxo,
     alt: "Tênis roxo com acabamento texturizado",
-    className:
-      "order-6 col-span-2 md:order-2 md:col-span-6 md:row-span-1",
+    className: "order-6 col-span-2 md:order-2 md:col-span-6 md:row-span-1",
   },
 ];
 
@@ -78,12 +75,12 @@ export const Gallery = () => {
               <>
                 <div className="absolute inset-0 bg-black/20" />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                {/* <div className=" ">
 
                   <h2 className='text-xl text-white font-medium leading-normal tracking-wider mb-5' >Krypton One</h2>
 
                   <h1 className='text-2xl leading-9 text-white tracking-widest mb-5'>
-                    Estilo urbano com atitude
+
                   </h1>
 
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -96,7 +93,20 @@ export const Gallery = () => {
                       Masculino
                     </Button>
                   </div>
-                </div>
+                </div> */}
+
+                <Overlay
+                  title="Kripton One"
+                  subtitle="Estilo urbano com atitude"
+                  classname='inset-0   justify-center'
+                >
+                  <Button variant="secondary" size="sm">
+                    Masculino
+                  </Button>
+                  <Button variant="secondary" size="sm">
+                    Feminino
+                  </Button>
+                </Overlay>
               </>
             )}
           </div>

@@ -1,0 +1,22 @@
+interface OverlayProps  {
+  children: React.ReactNode;
+  title: string;
+  subtitle: string;
+  classname: string
+}
+
+
+export const Overlay = ({ children, title, subtitle, classname }: OverlayProps) => {
+  return (
+
+    <div className={`absolute w-full flex  items-center text-center ${classname}`}>
+          <div className='flex flex-col text-white items-center w-97'>
+            <h2 className='text-xl font-medium leading-normal tracking-wider mb-2.5' >{title}</h2>
+            <h1 className='text-2xl leading-9 tracking-widest mb-10'>{subtitle}</h1>
+            <div className='flex gap-10'>
+              {children}
+            </div>
+          </div>
+        </div>
+  )
+}
