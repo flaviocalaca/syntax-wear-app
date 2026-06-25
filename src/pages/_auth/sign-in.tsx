@@ -25,7 +25,7 @@ function RouteComponent() {
           <Separator />
           <LoginForm />
           <p className="text-sm text-gray-600 mt-6 text-center">
-          Ainda não possui uma conta?{" "}
+          Ainda não possui uma conta?
           <Link to="/sign-up"
             className="font-medium text-[#6329A2] hover:underline"
           >
