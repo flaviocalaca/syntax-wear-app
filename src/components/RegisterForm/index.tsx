@@ -1,9 +1,9 @@
-import { useRegisterForm } from "./register-form.eschema";
+import { useRegisterForm, type RegisterFormData } from "./register-form.eschema";
 
 export const RegisterForm = () => {
   const { handleSubmit, register, errors, isSubmitting } = useRegisterForm();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: RegisterFormData) => {
     // substituir por chamada de API / lógica de registro
     console.log("register data:", data);
   };

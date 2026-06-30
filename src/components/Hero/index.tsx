@@ -16,7 +16,7 @@ export const Hero = () => {
           subtitle="Transforme qualquer passo em presença"
           classname='bottom-0  justify-end px-6 pb-32  md:px-24 md:items-end'
         >
-          <Button variant="secondary" size="sm">
+          <Button variant="secondary" size="lg">
             Ver mais
           </Button>
           <Button variant="primary" size="sm">

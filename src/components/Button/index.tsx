@@ -5,7 +5,7 @@ interface ButtonProps {
   className?: string
 }
 
-export const Button = ({ children, variant = 'primary', size = 'md' }: ButtonProps) => {
+export const Button = ({ children, variant = 'primary', size = 'md', className }: ButtonProps) => {
 
   const buttonStyles = {
     base: 'flex justify-center items-center gap-2 text-nowrap leading-none hover:cursor-pointer transition-colors duration-200 font-medium rounded-full py-2.5',
@@ -20,10 +20,10 @@ export const Button = ({ children, variant = 'primary', size = 'md' }: ButtonPro
     },
   }
 
-  const className = `${buttonStyles.base} ${buttonStyles.variant[variant]} ${buttonStyles.size[size]}`
+  const combinedClassName = `${buttonStyles.base} ${buttonStyles.variant[variant]} ${buttonStyles.size[size]} ${className ?? ''}`
 
   return (
-    <button className={className}>
+    <button className={combinedClassName}>
       {children}
     </button>
   )

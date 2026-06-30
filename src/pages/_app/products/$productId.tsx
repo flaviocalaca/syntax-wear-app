@@ -35,14 +35,14 @@ function RouteComponent() {
         <div className="text-black">
           <h1 className="text-4xl font-bold mb-1">{filteredProduct?.name}</h1>
           <p className="mb-2">Cor: {filteredProduct?.color}</p>
-          <p className="line-through text-sm text-[#878787">
-            R{formatCurrency(originalPrice)}
+          <p className="line-through text-sm text-[#878787]">
+            {formatCurrency(originalPrice)}
           </p>
           <p className="font-bold text-3xl mb-2">
             {formatCurrency(priceWithDiscount)} no PIX
           </p>
           <p className="text-sm text-[#878787]">
-            Você ecomomiza: <span className="font-semibold">10%</span>
+            Você economiza: <span className="font-semibold">10%</span>
           </p>
           <p className="mb-2">
             <span className="text-[#38373A] font-semibold">ou em até{""}</span>{" "}

@@ -53,7 +53,7 @@ body {
     color:#ffffff;
     background-color: var(--color-surface)
 }
-* Esconde scrollbar no Chrome, Safari e Edge */
+/* Esconde scrollbar no Chrome, Safari e Edge */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
