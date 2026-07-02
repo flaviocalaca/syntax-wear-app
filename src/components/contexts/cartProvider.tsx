@@ -1,6 +1,6 @@
 import { CartContext } from "./CartContest";
 import type { Product } from "../../assets/interfaces/product";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CartProviderProps {
   children: React.ReactNode;
@@ -10,8 +10,20 @@ export interface ProductCart extends Product {
   quantity: number;
 }
 
+const localStorageKey = "@SyntaxWear:cart";
+
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setcart] = useState<ProductCart[]>([]);
+  const [cart, setcart] = useState<ProductCart[]>(() => {
+    const cartFromLocalStorage = localStorage.getItem(localStorageKey);
+    return cartFromLocalStorage !== null
+      ? JSON.parse(cartFromLocalStorage)
+      : [];
+  });
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(cart));
+  }, [cart]);
+
+
 
   function addToCart(product: Product): void {
     const productExistsInCart = cart.find(
@@ -72,6 +84,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         removeFromCart,
         increment,
         decrement,
+
       }}
     >
       {children}

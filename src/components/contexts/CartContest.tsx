@@ -8,6 +8,7 @@ interface CartContextType {
   removeFromCart: (productId: number) => void;
   increment: (product: ProductCart) => void;
   decrement: (product: ProductCart) => void;
+
 }
 
 export const CartContext = createContext({} as CartContextType);
