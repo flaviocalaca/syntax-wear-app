@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { products } from "../../../mocks/products";
 import { formatCurrency } from "../../../utils/currency-format";
-import { Button } from "../../../components/Button";
 import { useContext } from 'react';
 import { CartContext } from '../../../components/contexts/CartContest';
+import { CEPForm } from '../../../components/CEPForm';
 
 export const Route = createFileRoute("/_app/products/$productId")({
   component: RouteComponent,
@@ -57,16 +57,7 @@ function RouteComponent() {
           <p className="max-w-125 my-5">{filteredProduct?.description}</p>
           <div className="mb-6">
             <p>Calcular frete</p>
-            <form className="flex gap-3">
-              <input
-                type="text"
-                placeholder="digite seu CEP"
-                className="border border-[#c0c0c0] rounded-2xl p-3"
-              />
-              <Button variant="primary" size="lg">
-                Calcular
-              </Button>
-            </form>
+            <CEPForm />
           </div>
           <button className="bg-black text-white rounded-md p-5 w-full cursor-pointer hover:bg-gray-500" onClick={() => addToCart(filteredProduct)}>
             Adicionar ao carrinho
