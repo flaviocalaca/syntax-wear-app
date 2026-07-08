@@ -43,7 +43,7 @@ export const ShoppingCart = () => {
             </button>
           </header>
 
-          <ul className="p-4 overflow-y-auto scrollbar-hide h-[calc(100% - 140px)] flex flex-col gap-3">
+          <ul className="p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3">
             {cart.map((product) => (
               <li key={product.id} className="flex flex-col gap-1 pr-2">
                 <button

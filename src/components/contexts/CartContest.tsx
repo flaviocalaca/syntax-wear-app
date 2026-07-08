@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import type { ProductCart } from './cartProvider';
-import type { Product } from '../../assets/interfaces/product';
+import type { Product } from '../../interfaces/product';
 
 interface CartContextType {
   cart: ProductCart[];

@@ -1,9 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { products } from "../../../mocks/products";
 import { formatCurrency } from "../../../utils/currency-format";
-import { useContext } from 'react';
-import { CartContext } from '../../../components/contexts/CartContest';
-import { CEPForm } from '../../../components/CEPForm';
+import { useContext } from "react";
+import { CartContext } from "../../../components/contexts/CartContest";
+import { CEPForm } from "../../../components/CEPForm";
 
 export const Route = createFileRoute("/_app/products/$productId")({
   component: RouteComponent,
@@ -16,6 +17,16 @@ function RouteComponent() {
   const filteredProduct = products.find(
     (product) => product.id === Number(productId),
   );
+
+  if (!filteredProduct) {
+    return (
+      <section className="container mb-10 pt-44 md:pt-54 pb-10 md:px-10 flex flex-col justify-center items-center  text-black min-h-[60vh]">
+        <h1 className="text-4xl font-bold mb-4">Produto não encontrado</h1>
+        <p className="mb-6">O produto que você está procurando não existe ou foi removido.</p>
+        <Link to='/products' className="text-accent hover:text-accent-hover hover:underline ">Voltar para a lista de produtos</Link>
+      </section>
+    );
+  }
 
   const originalPrice = filteredProduct?.price ?? 0;
 
@@ -59,7 +70,10 @@ function RouteComponent() {
             <p>Calcular frete</p>
             <CEPForm />
           </div>
-          <button className="bg-black text-white rounded-md p-5 w-full cursor-pointer hover:bg-gray-500" onClick={() => addToCart(filteredProduct)}>
+          <button
+            className="bg-black text-white rounded-md p-5 w-full cursor-pointer hover:bg-gray-500"
+            onClick={() => addToCart(filteredProduct)}
+          >
             Adicionar ao carrinho
           </button>
         </div>

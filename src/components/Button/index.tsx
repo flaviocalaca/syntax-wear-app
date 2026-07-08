@@ -3,9 +3,10 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary'
   size: 'sm' | 'md' | 'lg'
   className?: string
+  onClick?: () => void
 }
 
-export const Button = ({ children, variant = 'primary', size = 'md', className }: ButtonProps) => {
+export const Button = ({ children, variant = 'primary', size = 'md', onClick, className }: ButtonProps) => {
 
   const buttonStyles = {
     base: 'flex justify-center items-center gap-2 text-nowrap leading-none hover:cursor-pointer transition-colors duration-200 font-medium rounded-full py-2.5',
@@ -23,7 +24,7 @@ export const Button = ({ children, variant = 'primary', size = 'md', className }
   const combinedClassName = `${buttonStyles.base} ${buttonStyles.variant[variant]} ${buttonStyles.size[size]} ${className ?? ''}`
 
   return (
-    <button className={combinedClassName}>
+    <button className={combinedClassName} onClick={onClick}>
       {children}
     </button>
   )
