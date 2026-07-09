@@ -1,7 +1,7 @@
 import IconCart from "@/assets/images/icon-cart.png";
 import { useContext, useState } from "react";
 import { formatCurrency } from "../../utils/currency-format";
-import { CartContext } from "../contexts/CartContest";
+import { CartContext } from "../../contexts/CartContest";
 
 export const ShoppingCart = () => {
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
@@ -104,3 +104,4 @@ export const ShoppingCart = () => {
     </>
   );
 };
+

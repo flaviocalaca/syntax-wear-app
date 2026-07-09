@@ -6,6 +6,9 @@ import GoogleIcom from "@/assets/google-icon.png";
 
 export const Route = createFileRoute("/_auth/sign-up")({
   component: RouteComponent,
+   head: () => ({
+    meta: [{ title: "Cadastre-se - SyntaxWear" }],
+  }),
 });
 
 function RouteComponent() {

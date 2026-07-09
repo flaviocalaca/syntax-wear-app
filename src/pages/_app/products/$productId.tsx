@@ -1,13 +1,25 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { products } from "../../../mocks/products";
 import { formatCurrency } from "../../../utils/currency-format";
 import { useContext } from "react";
-import { CartContext } from "../../../components/contexts/CartContest";
+import { CartContext } from "../../../contexts/CartContest";
 import { CEPForm } from "../../../components/CEPForm";
 
 export const Route = createFileRoute("/_app/products/$productId")({
   component: RouteComponent,
+  head: ({params}) => {
+
+    console.log(params);
+    const filteredProduct = products.find(
+      (product) => product.id === Number(params.productId),
+    );
+
+    const title = filteredProduct ? filteredProduct.name : "Produto não Encontrado - SyntaxWear";
+
+    const meta = [{ title }];
+
+    return { meta };
+  },
 });
 
 function RouteComponent() {
@@ -22,8 +34,15 @@ function RouteComponent() {
     return (
       <section className="container mb-10 pt-44 md:pt-54 pb-10 md:px-10 flex flex-col justify-center items-center  text-black min-h-[60vh]">
         <h1 className="text-4xl font-bold mb-4">Produto não encontrado</h1>
-        <p className="mb-6">O produto que você está procurando não existe ou foi removido.</p>
-        <Link to='/products' className="text-accent hover:text-accent-hover hover:underline ">Voltar para a lista de produtos</Link>
+        <p className="mb-6">
+          O produto que você está procurando não existe ou foi removido.
+        </p>
+        <Link
+          to="/products"
+          className="text-accent hover:text-accent-hover hover:underline "
+        >
+          Voltar para a lista de produtos
+        </Link>
       </section>
     );
   }

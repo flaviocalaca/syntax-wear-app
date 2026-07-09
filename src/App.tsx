@@ -1,12 +1,12 @@
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import { routeTree } from './routes-tree-gen'
-import { CartProvider } from './components/contexts/cartProvider'
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routes-tree-gen";
+import { CartProvider } from "./contexts/CartProvider";
 
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router
+    router: typeof router;
   }
 }
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <CartProvider>
       <RouterProvider router={router} />
     </CartProvider>
-  )
+  );
 }
 
-export default App
+export default App;
