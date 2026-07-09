@@ -17,7 +17,7 @@ export const ShoppingCart = () => {
         <img src={IconCart} alt="Ícone carrinho de compras" />
 
         {cart.length > 0 && (
-          <span className="absolute -top-3 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+          <span className="absolute -top-3 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-error text-xs font-bold text-white">
             {cart.length}
           </span>
         )}

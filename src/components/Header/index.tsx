@@ -1,6 +1,5 @@
 import logo from "@/assets/images/Logo.png";
 import IconUser from "@/assets/images/icon-user.png";
-import IconAbolt from "@/assets/images/icon-about.png";
 import { Link } from "@tanstack/react-router";
 import { ShoppingCart } from "../ShoppingCart";
 import { MenuMobile } from "../../components/MenuMobile";
@@ -50,11 +49,7 @@ export const Header = () => {
                   <img src={IconUser} alt="Ícone de login" />
                 </Link>
               </li>
-              <li className="hidden lg:block">
-                <Link to="/about">
-                  <img src={IconAbolt} alt="Ícone sobre" />
-                </Link>
-              </li>
+
               <li>
                 <ShoppingCart />
               </li>
