@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import LogoImage from '@/assets/images/logo.png'
+import LogoImage from '@/assets/images/Logo.png'
 
 export const Logo = () => {
     return (
