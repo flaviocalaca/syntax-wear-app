@@ -1,4 +1,4 @@
-import logo from "@/assets/images/Logo.png";
+import logo from "@/assets/images/logo.png";
 import IconUser from "@/assets/images/icon-user.png";
 import { Link } from "@tanstack/react-router";
 import { MenuMobile } from "../../components/MenuMobile";
