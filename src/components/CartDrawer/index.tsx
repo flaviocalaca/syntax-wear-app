@@ -1,44 +1,31 @@
-import IconCart from "@/assets/images/icon-cart.png";
-import { useContext, useState } from "react";
-import { formatCurrency } from "../../utils/currency-format";
+import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContest";
+import { formatCurrency } from "../../utils/currency-format";
 
-export const ShoppingCart = () => {
-  const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
+interface CartDrawerProps {
+  IsOpen: boolean;
+  onClose: () => void;
+}
+
+export const CartDrawer = ({ IsOpen, onClose }: CartDrawerProps) => {
   const { cart, removeFromCart, increment, decrement } =
     useContext(CartContext);
 
   return (
     <>
-      <button
-        className="relative cursor-pointer"
-        onClick={() => setCartIsOpen(!cartIsOpen)}
-      >
-        <img src={IconCart} alt="Ícone carrinho de compras" />
-
-        {cart.length > 0 && (
-          <span className="absolute -top-3 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-error text-xs font-bold text-white">
-            {cart.length}
-          </span>
-        )}
-      </button>
-
       {/* { Overlay } */}
       <div
-        className={`${cartIsOpen ? "bg-black/70 visible" : "bg-transparent invisible"} fixed top-0 bottom-0 left-0 right-0`}
-        onClick={() => setCartIsOpen(!cartIsOpen)}
+        className={`${IsOpen ? "bg-black/70 visible" : "bg-transparent invisible "} text-black fixed inset-0 z-50 transition-all duration-600 ease-in-out`}
+        onClick={onClose}
       >
         {/* { Drawer } */}
         <div
-          className={`${cartIsOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-106`}
+          className={`${IsOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-106`}
           onClick={(e) => e.stopPropagation()}
         >
           <header className="flex items-center justify-between px-5">
             <p className="text-2xl font-bold">Carrinho ({cart.length})</p>
-            <button
-              className="text-xl cursor-pointer"
-              onClick={() => setCartIsOpen(!cartIsOpen)}
-            >
+            <button className="text-xl cursor-pointer" onClick={onClose}>
               X
             </button>
           </header>
@@ -104,4 +91,3 @@ export const ShoppingCart = () => {
     </>
   );
 };
-
