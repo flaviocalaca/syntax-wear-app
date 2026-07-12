@@ -53,44 +53,46 @@ function RouteComponent() {
   const inInstallmentsPrice = originalPrice / 3;
 
   return (
-    <section className="container mb-10 pt-44 md:pt-54 pb-10 md:px-10 ">
-      <nav className="text-black text-sm mb-15 ml-10 ">
-        <Link to="/">Home</Link> /{""}
-        <Link to="/products">Produtos</Link> /{""}
-        <span className="font-semibold">{filteredProduct?.name}</span>
+    <section className="container mb-10 pt-44 md:pt-54 pb-10 px-4 md:px-10">
+      <nav className="text-black text-sm mb-6 md:mb-10 ml-2 md:ml-10">
+        <Link to="/" className="hover:underline">Home</Link> /{""}
+        <Link to="/products" className="hover:underline ml-1">Produtos</Link> /{""}
+        <span className="font-semibold ml-1">{filteredProduct?.name}</span>
       </nav>
-      <div className="flex justify-center gap-10">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-16">
         <img
           src={filteredProduct?.image}
           alt={filteredProduct?.name}
-          className="w-125 bg-white rounded-2xl"
+          className="w-full md:w-125 aspect-square object-cover bg-white rounded-2xl shadow-sm"
         />
-        <div className="text-black">
-          <h1 className="text-4xl font-bold mb-1">{filteredProduct?.name}</h1>
-          <p className="mb-2">Cor: {filteredProduct?.color}</p>
-          <p className="line-through text-sm text-[#878787]">
-            {formatCurrency(originalPrice)}
-          </p>
-          <p className="font-bold text-3xl mb-2">
-            {formatCurrency(priceWithDiscount)} no PIX
-          </p>
-          <p className="text-sm text-[#878787]">
-            Você economiza: <span className="font-semibold">10%</span>
-          </p>
-          <p className="mb-2">
-            <span className="text-[#38373A] font-semibold">ou em até{""}</span>{" "}
-            6X de{" "}
-            <span className="text-[#38373A] font-semibold">
-              {formatCurrency(inInstallmentsPrice)}
-            </span>
-          </p>
-          <p className="max-w-125 my-5">{filteredProduct?.description}</p>
+        <div className="text-black w-full md:flex-1">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">{filteredProduct?.name}</h1>
+          <p className="mb-4 text-gray-600">Cor: {filteredProduct?.color}</p>
+          
           <div className="mb-6">
-            <p>Calcular frete</p>
+            <p className="line-through text-sm text-gray-400">
+              {formatCurrency(originalPrice)}
+            </p>
+            <p className="font-bold text-3xl text-primary mb-1">
+              {formatCurrency(priceWithDiscount)} <span className="text-lg font-normal text-gray-500">no PIX</span>
+            </p>
+            <p className="text-xs text-green-600 bg-green-50 inline-block px-2.5 py-0.5 rounded-full font-semibold mb-2">
+              Economize 10%
+            </p>
+            <p className="text-sm text-gray-700">
+              ou em até 6x de <span className="font-semibold">{formatCurrency(inInstallmentsPrice)}</span> sem juros
+            </p>
+          </div>
+
+          <p className="text-gray-700 leading-relaxed mb-6">{filteredProduct?.description}</p>
+          
+          <div className="mb-6 bg-gray-50 p-4 rounded-xl border border-gray-100">
+            <p className="font-semibold mb-2 text-sm text-gray-700">Calcular frete e prazo</p>
             <CEPForm />
           </div>
+          
           <button
-            className="bg-black text-white rounded-md p-5 w-full cursor-pointer hover:bg-gray-500"
+            className="bg-black text-white rounded-xl p-4 w-full cursor-pointer hover:bg-gray-800 active:scale-[0.98] transition-all font-semibold shadow-md"
             onClick={() => addToCart(filteredProduct)}
           >
             Adicionar ao carrinho

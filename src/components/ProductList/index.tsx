@@ -8,7 +8,7 @@ type ProductListProps = {
 
 export const ProductList = ({ products }: ProductListProps) => {
   return (
-    <section className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(350px,1fr))] xl:grid-cols-3 mb-10">
+    <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-10">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
